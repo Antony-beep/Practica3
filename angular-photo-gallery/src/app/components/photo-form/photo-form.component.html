@@ -1,0 +1,37 @@
+<div class="col-lg-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            Upload a Photo
+        </div>
+        <div class="card-body">
+            <form (submit)="uploadPhoto(title, description , nombre , apellido , email ,fecha_nacimiento)">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Photo's Title" #title required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre" #nombre required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Apellido" #apellido required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" #email required>
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="Fecha de nacimiento" #fecha_nacimiento required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="2" class="form-control" placeholder="Photo's Description" required #description></textarea>
+                </div>
+
+                <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+                <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" alt="No image"
+                    (click)="photoInput.click()">
+
+                <button class="btn btn-primary btn-block">
+                    Upload
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
